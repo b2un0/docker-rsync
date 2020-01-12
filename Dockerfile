@@ -10,6 +10,7 @@ ENV PORT ""
 ENV LOGIN ""
 
 ENV RSYNC_OPTIONS ""
+ENV SSH_OPTIONS ""
 
 RUN apk add bash curl openssh rsync
 

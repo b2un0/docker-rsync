@@ -18,5 +18,5 @@ rsync --verbose \
   --human-readable \
   --info="progress2" \
   --stats \
-  -e "ssh -o IPQoS=throughput -o StrictHostKeyChecking=no -p ${PORT}" \
+  -e "ssh ${SSH_OPTIONS} -p ${PORT}" \
   "${SOURCE}" "${LOGIN}@${HOST}:${TARGET}"

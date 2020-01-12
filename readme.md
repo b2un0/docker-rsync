@@ -14,9 +14,9 @@ services:
         network_mode: bridge
         # command: "media-sync" # for testing purpose
         volumes:
-            - /root/.ssh/id_ed25519:/root/.ssh/id_ed25519:ro
-            - /here/get/my/stuff/://here/get/my/stuff/:ro
+            - /here/get/my/stuff/:/here/get/my/stuff/:ro
             - ./config/syncer.list:/tmp/media-sync.list:ro
+            - ~/.ssh/id_ed25519:/tmp/ssh_key:ro
         environment:
             SCHEDULE: "15 3 * * *" # https://crontab.guru/
             HOST: "some.target.tld"
@@ -24,6 +24,7 @@ services:
             LOGIN: "syncer"
             SOURCE: "/here/get/my/stuff/"
             TARGET: "/volume1/video/"
+            SSH_OPTIONS: "-i /tmp/ssh_key -o StrictHostKeyChecking=no"
             # RSYNC_OPTIONS: "--rsync-path=/bin/rsync" # required for synology example
             # RSYNC_OPTIONS: "--list-only"
             # RSYNC_OPTIONS: "--dry-run"
