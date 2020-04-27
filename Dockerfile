@@ -15,7 +15,7 @@ ENV LOGIN ""
 ENV RSYNC_OPTIONS ""
 ENV SSH_OPTIONS ""
 
-RUN apk --no-cache add curl openssh rsync
+RUN apk --no-cache add openssh rsync
 
 RUN echo "${SCHEDULE} /usr/local/bin/file-sync" > /etc/crontabs/root
 

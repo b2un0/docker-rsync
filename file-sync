@@ -1,22 +1,20 @@
 #!/bin/ash
 
-set -e        # exit on error
-set -u        # no unset variables
-set -o xtrace # show rsync command
+set -e  # exit on error
+set -u  # no unset variables
+set -x  # show rsync command
 
-rsync --verbose \
+rsync \
   --recursive \
   --times \
   --omit-dir-times \
   --prune-empty-dirs \
-  --copy-links \
   --size-only \
   --sparse \
   ${RSYNC_OPTIONS} \
   --include-from="/tmp/include.list" \
   --exclude="*" \
   --human-readable \
-  --info="progress2" \
   --stats \
   -e "ssh ${SSH_OPTIONS} -p ${PORT}" \
   "${SOURCE}" "${LOGIN}@${HOST}:${TARGET}"
