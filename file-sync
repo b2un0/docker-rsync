@@ -4,6 +4,24 @@ set -e  # exit on error
 set -u  # no unset variables
 set -x  # show rsync command
 
+# dry run to get stats
+rsync \
+  --recursive \
+  --times \
+  --omit-dir-times \
+  --prune-empty-dirs \
+  --size-only \
+  --sparse \
+  ${RSYNC_OPTIONS} \
+  --include-from="/tmp/include.list" \
+  --exclude="*" \
+  --human-readable \
+  --stats \
+  --dry-run \
+  -e "ssh ${SSH_OPTIONS} -p ${PORT}" \
+  "${SOURCE}" "${LOGIN}@${HOST}:${TARGET}"
+
+# run really
 rsync \
   --recursive \
   --times \
