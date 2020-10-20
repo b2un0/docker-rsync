@@ -1,9 +1,10 @@
 # docker rsync
 
-![Docker Pulls](https://img.shields.io/docker/pulls/b2un0/rsync.svg)
-![Docker Stars](https://img.shields.io/docker/stars/b2un0/rsync.svg)
-![Docker Build](https://github.com/b2un0/docker-rsync/workflows/%5Bdocker%5D%20CI%20for%20releases/badge.svg?branch=master&event=push)
-![MicroBadger Size](https://img.shields.io/microbadger/image-size/b2un0/rsync.svg)
+![](https://img.shields.io/github/license/b2un0/docker-rsync.svg)
+![](https://img.shields.io/docker/pulls/b2un0/rsync.svg)
+![](https://img.shields.io/docker/stars/b2un0/rsync.svg)
+![](https://img.shields.io/docker/image-size/b2un0/rsync.svg)
+![](https://github.com/b2un0/docker-rsync/workflows/docker/badge.svg)
 
 
 simple docker container to sync some stuff with specific rsync options
