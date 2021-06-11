@@ -1,4 +1,4 @@
-# docker rsync
+# docker scheduled rsync
 
 ![](https://img.shields.io/github/license/b2un0/docker-rsync.svg)
 ![](https://img.shields.io/docker/pulls/b2un0/rsync.svg)
@@ -7,7 +7,7 @@
 ![](https://github.com/b2un0/docker-rsync/workflows/docker/badge.svg)
 
 
-simple docker container to sync some stuff with specific rsync options
+simple docker container to run scheduled rsync with custom rsync options
 
 `docker-compose.yml` example
 ```yaml
