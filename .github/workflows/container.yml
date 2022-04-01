@@ -2,10 +2,13 @@ name: 'container'
 
 on:
   push:
+    branches:
+      - main
+    tags:
+      - '*'
   workflow_dispatch:
   schedule:
     - cron: '0 7 * * MON'
-
 jobs:
   container:
     runs-on: ubuntu-latest

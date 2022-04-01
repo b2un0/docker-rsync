@@ -5,6 +5,7 @@ ARG VCS_REF
 ARG VERSION
 
 ENV SCHEDULE="15 3 * * *" \
+    CRON_CMD="/usr/local/bin/file-sync"\
     SOURCE="" \
     TARGET="" \
     HOST="" \
@@ -15,9 +16,11 @@ ENV SCHEDULE="15 3 * * *" \
 
 RUN apk --no-cache add openssh rsync
 
-RUN echo "${SCHEDULE} /usr/local/bin/file-sync" > /etc/crontabs/root
-
 ADD file-sync /usr/local/bin/
+
+ADD entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["/usr/sbin/crond", "-l", "2", "-f"]
 

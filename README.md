@@ -4,16 +4,24 @@
 ![](https://img.shields.io/docker/pulls/b2un0/rsync.svg)
 ![](https://img.shields.io/docker/stars/b2un0/rsync.svg)
 ![](https://img.shields.io/docker/image-size/b2un0/rsync.svg)
-![](https://github.com/b2un0/docker-rsync/workflows/docker/badge.svg)
-
+![](https://github.com/b2un0/docker-rsync/workflows/container/badge.svg)
 
 simple docker container to run scheduled rsync with custom rsync options
 
-`docker-compose.yml` example
+## one shot example
+
+```bash
+docker run -it --rm ghcr.io/b2un0/docker-rsync rsync --version
+```
+
+## scheduled example
+
+`docker-compose.yaml`
+
 ```yaml
 services:
     something:
-        image: b2un0/rsync:latest
+        image: ghcr.io/b2un0/rsync:latest
         restart: unless-stopped
         network_mode: bridge
         # command: "file-sync" # for testing purpose
