@@ -22,7 +22,7 @@ ADD entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["/usr/sbin/crond", "-l", "2", "-f"]
+CMD ["/usr/sbin/crond", "-f"]
 
 SHELL ["/bin/ash"]
 
