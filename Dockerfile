@@ -1,9 +1,5 @@
 FROM alpine:3
 
-ARG BUILD_DATE
-ARG VCS_REF
-ARG VERSION
-
 ENV SCHEDULE="15 3 * * *" \
     CRON_CMD="/usr/local/bin/file-sync"\
     SOURCE="" \
@@ -25,8 +21,3 @@ ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/sbin/crond", "-f"]
 
 SHELL ["/bin/ash"]
-
-LABEL org.opencontainers.image.created=${BUILD_DATE} \
-      org.opencontainers.image.revision=${VCS_REF} \
-      org.opencontainers.image.version=${VERSION} \
-      org.opencontainers.image.source="https://github.com/b2un0/docker-rsync"
